@@ -199,6 +199,15 @@
         </button>
       </div>
 
-      
+      <select
+      x-model="sortOrder"
+      @change="sortProducts()"
+      class="border p-2 rounded"
+    >
+      <option value="">Sort by Price</option>
+      <option value="asc">Lowest to Highest</option>
+      <option value="desc">Highest to Lowest</option>
+    </select>
+  </div>
   </body>
 </html>
