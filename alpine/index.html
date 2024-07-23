@@ -335,6 +335,23 @@ x-show="showModal"
             this.showModal = false;
           },
 
+          
+          filterProducts() {
+            this.loading = true;
+            this.filteredProducts = this.products.filter((product) => {
+              const matchesSearch = product.title
+                .toLowerCase()
+                .includes(this.searchQuery.toLowerCase());
+              const matchesCategory =
+                this.selectedCategory === "" ||
+                product.category === this.selectedCategory;
+              return matchesSearch && matchesCategory;
+            });
+            this.sortProducts();
+            this.loading = false;
+          },
+
+
 </script>
   </body>
 </html>
