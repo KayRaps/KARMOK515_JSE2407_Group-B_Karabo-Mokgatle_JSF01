@@ -282,5 +282,26 @@ x-show="showModal"
 </button>
 </div>
 </div>
+
+<script>
+   function store() {
+        return {
+          products: [],
+          filteredProducts: [],
+          categories: [],
+          searchQuery: "",
+          selectedCategory: "",
+          sortOrder: "",
+          favorites: JSON.parse(localStorage.getItem("favorites")) || [],
+          userRating: 0,
+          showModal: false,
+          modalProduct: {},
+          loading: true,
+
+          async init() {
+            await this.fetchCategories();
+            await this.fetchProducts();
+          },
+</script>
   </body>
 </html>
