@@ -213,6 +213,16 @@
   <div class="loading text-center text-2xl" x-show="loading">
     Loading...
   </div>
-  
+
+  <div
+  class="grid grid-cols-1 hidden:grid-cols-2 lg:grid-cols-4 gap-6 hover:shadow-lg" 
+>
+  <template x-for="product in filteredProducts" :key="product.id">
+    <div
+      class=" border p-4 rounded-lg shadow hover:shadow-lg bg-white transition-shadow duration-600 text-center"
+      @click="openModal(product)"
+    >
+
+    
   </body>
 </html>
