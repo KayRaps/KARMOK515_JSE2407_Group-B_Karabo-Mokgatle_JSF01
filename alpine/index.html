@@ -351,6 +351,19 @@ x-show="showModal"
             this.loading = false;
           },
 
+          sortProducts() {
+            if (this.sortOrder) {
+              this.filteredProducts.sort((a, b) => {
+                if (this.sortOrder === "asc") {
+                  return a.price - b.price;
+                } else if (this.sortOrder === "desc") {
+                  return b.price - a.price;
+                }
+                return 0;
+              });
+            }
+          },
+
 
 </script>
   </body>
