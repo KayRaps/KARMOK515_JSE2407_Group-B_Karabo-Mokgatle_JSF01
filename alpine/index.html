@@ -364,7 +364,20 @@ x-show="showModal"
             }
           },
 
+          toggleFavorite(productId) {
+            if (this.favorites.includes(productId)) {
+              this.favorites = this.favorites.filter((id) => id !== productId);
+            } else {
+              this.favorites.push(productId);
+            }
+            localStorage.setItem("favorites", JSON.stringify(this.favorites));
+          },
 
+          isFavorite(productId) {
+            return this.favorites.includes(productId);
+          },
+        };
+      }
 </script>
-  </body>
+</body>
 </html>
