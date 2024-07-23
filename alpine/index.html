@@ -302,6 +302,34 @@ x-show="showModal"
             await this.fetchCategories();
             await this.fetchProducts();
           },
+
+          async fetchProducts() {
+            this.loading = true;
+            const response = await fetch("https://fakestoreapi.com/products");
+            const data = await response.json();
+            this.products = data;
+            this.filteredProducts = data;
+            this.loading = false;
+          },
+
+          async fetchCategories() {
+            const response = await fetch(
+              "https://fakestoreapi.com/products/categories"
+            );
+            const data = await response.json();
+            this.categories = data;
+          },
+
+          openModal(product) {
+            this.loading = true;
+            fetch(`https://fakestoreapi.com/products/${product.id}`)
+              .then((response) => response.json())
+              .then((data) => {
+                this.modalProduct = data;
+                this.showModal = true;
+                this.loading = false;
+              });
+          },
 </script>
   </body>
 </html>
