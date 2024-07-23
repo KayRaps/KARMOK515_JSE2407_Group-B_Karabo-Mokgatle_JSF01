@@ -171,5 +171,18 @@
       </div>
     </nav>
   </header>
+  <!-- Main Content -->
+  <div class="container mx-auto p-6" x-init="init()">
+    <div class="flex justify-between mb-4">
+      <select
+        x-model="selectedCategory"
+        @change="filterProducts()"
+        class="border p-2 rounded"
+      >
+        <option value="">All Categories</option>
+        <template x-for="category in categories" :key="category">
+          <option :value="category" x-text="category"></option>
+        </template>
+      </select>
   </body>
 </html>
